@@ -108,7 +108,7 @@ struct MapView: UIViewRepresentable {
     @Binding var isLoading: Bool
     @Binding var showAlert: Bool
     @Binding var message: String
-    let locationManager = CLLocationManager()
+    @ObservedObject var locationManager = LocationManager()
     
     init(centerCoordinate: CLLocationCoordinate2D, isSelected: Binding<Bool> = .constant(true), selectedAnnotation: Binding<CustomPointAnnotation?>, isLoading: Binding<Bool> = .constant(false), showAlert: Binding<Bool> = .constant(false), message: Binding<String>) {
         _isSelected = isSelected
@@ -122,11 +122,6 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
-        
-        let span = MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
-        let region = MKCoordinateRegion(center: centerCoordinate, span: span)
-        mapView.setRegion(region, animated: true)
-        
         return mapView
     }
 
@@ -135,6 +130,9 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        let span = MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
+        let region = MKCoordinateRegion(center: locationManager.location?.coordinate ?? centerCoordinate, span: span)
+        uiView.setRegion(region, animated: true)
         uiView.showsUserLocation = true
         uiView.addAnnotations(userPointAnnotation)
     }

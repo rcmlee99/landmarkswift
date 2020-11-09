@@ -14,6 +14,7 @@
 		EC392DD52554C9530069A3C9 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392DD42554C9530069A3C9 /* ActivityIndicatorView.swift */; };
 		EC392DDD2554E0960069A3C9 /* Landmark_RemarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392DDC2554E0960069A3C9 /* Landmark_RemarkTests.swift */; };
 		EC392DE525550E630069A3C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC392DE425550E630069A3C9 /* README.md */; };
+		EC392DE82558F7E70069A3C9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392DE72558F7E70069A3C9 /* LocationManager.swift */; };
 		ECEDB72B2552001200FA2ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEDB72A2552001200FA2ED1 /* AppDelegate.swift */; };
 		ECEDB72D2552001200FA2ED1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEDB72C2552001200FA2ED1 /* SceneDelegate.swift */; };
 		ECEDB72F2552001200FA2ED1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEDB72E2552001200FA2ED1 /* ContentView.swift */; };
@@ -53,6 +54,7 @@
 		EC392DDC2554E0960069A3C9 /* Landmark_RemarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark_RemarkTests.swift; sourceTree = "<group>"; };
 		EC392DDE2554E0960069A3C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC392DE425550E630069A3C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EC392DE72558F7E70069A3C9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		ECEDB7272552001200FA2ED1 /* Landmark Remark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Landmark Remark.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEDB72A2552001200FA2ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECEDB72C2552001200FA2ED1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 			path = "Landmark RemarkTests";
 			sourceTree = "<group>";
 		};
+		EC392DE62558F7B80069A3C9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EC392DE72558F7E70069A3C9 /* LocationManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		ECEDB71E2552001200FA2ED1 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		ECEDB75A2552075900FA2ED1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				EC392DE62558F7B80069A3C9 /* Common */,
 				EC392DD32554C9250069A3C9 /* UI */,
 				ECEDB7612552075900FA2ED1 /* Parsing */,
 			);
@@ -350,6 +361,7 @@
 				EC392DD02552B3D50069A3C9 /* ListRowView.swift in Sources */,
 				ECEDB72F2552001200FA2ED1 /* ContentView.swift in Sources */,
 				ECEDB76E255209FD00FA2ED1 /* LandmarkResponses.swift in Sources */,
+				EC392DE82558F7E70069A3C9 /* LocationManager.swift in Sources */,
 				ECEDB7682552079600FA2ED1 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

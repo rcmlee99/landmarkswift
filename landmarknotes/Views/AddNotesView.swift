@@ -11,15 +11,15 @@ import CoreLocation
 import Combine
 
 struct AddNotesView: View {
-    @State var location: CLLocationCoordinate2D
     @State var notes: String = ""
     @Environment(\.presentationMode) var presentation
     @ObservedObject var viewModel = AddNotesViewModel()
+    @ObservedObject var locationManager = LocationManager()
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("Current Location")
-            Text("\(location.latitude),\(location.longitude)")
+            Text("\(locationManager.coordinate.latitude),\(locationManager.coordinate.longitude)")
             .font(.caption)
             .padding(.bottom, 20)
             Text("Notes")
@@ -28,7 +28,7 @@ struct AddNotesView: View {
             Spacer()
             Button(action: {
                 if self.notes != "" {
-                    let addnotes = UserData(username: "rcmlee99", notes: self.notes, location: self.location)
+                    let addnotes = UserData(username: "rcmlee99", notes: self.notes, location: self.locationManager.coordinate)
                     self.viewModel.postNotes(addnotes: addnotes)
                 }
             }) {
@@ -54,7 +54,7 @@ struct AddNotesView: View {
 
 struct AddNotesView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNotesView(location: CLLocationCoordinate2D(latitude: -33.960705, longitude: 151.14))
+        AddNotesView()
     }
 }
 

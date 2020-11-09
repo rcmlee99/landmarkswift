@@ -23,7 +23,7 @@ struct MainMapView: View {
                 VStack() {
                     ActivityIndicatorView(isAnimating: isLoading).configure { $0.color = .red }
                     MapView(centerCoordinate: centerCoordinate, isSelected: $isPresented, selectedAnnotation: $selectedAnnotation, isLoading: $isLoading, showAlert: $showAlert, message: $message)
-                    NavigationLink(destination: AddNotesView(location: centerCoordinate)) {
+                    NavigationLink(destination: AddNotesView()) {
                         Text("Add Notes")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()

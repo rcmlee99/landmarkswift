@@ -37,20 +37,6 @@ struct ContentView: View {
                 }
                 .tag(1)
         }
-        .onAppear { self.getCurrentLocation() }
-    }
-    
-    func getCurrentLocation() {
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.showsBackgroundLocationIndicator = true
-            locationManager.startUpdatingLocation()
-            if let coordinate = locationManager.location?.coordinate {
-                centerCoordinate = coordinate
-                print(centerCoordinate)
-            }
-        }
     }
 }
 
