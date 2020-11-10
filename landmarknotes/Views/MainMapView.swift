@@ -37,7 +37,7 @@ struct MainMapView: View {
                         .font(Font.system(size: 19, weight: .semibold))
                     }
                 }.sheet(isPresented: $isPresented) {
-                    UserDetailView(selectedAnnotation: self.selectedAnnotation!)
+                    UserDetailView(selectedAnnotation: self.$selectedAnnotation)
                 }.alert(isPresented: $showAlert) {
                     Alert(title: Text(message))
                 }.navigationBarTitle("Map of User Notes")

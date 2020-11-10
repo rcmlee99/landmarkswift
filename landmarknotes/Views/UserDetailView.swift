@@ -12,10 +12,10 @@ import Combine
 
 struct UserDetailView: View {
     @Environment(\.presentationMode) var presentationMode
-    var selectedAnnotation: CustomPointAnnotation?
+    @Binding var selectedAnnotation: CustomPointAnnotation?
     
-    init(selectedAnnotation:CustomPointAnnotation) {
-        self.selectedAnnotation = selectedAnnotation
+    init(selectedAnnotation:Binding<CustomPointAnnotation?>) {
+        _selectedAnnotation = selectedAnnotation
     }
 
     var body: some View {
@@ -46,6 +46,21 @@ struct UserDetailView: View {
 
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        UserDetailView(selectedAnnotation: CustomPointAnnotation(user: UserData(username: "hello77", notes: "Lorem Ipsum", location: CLLocationCoordinate2DMake(-33.87563, 151.204841))))
+        StatefulPreviewWrapper(CustomPointAnnotation(user: UserData(username: "hello77", notes: "Lorem Ipsum", location: CLLocationCoordinate2DMake(-33.87563, 151.204841)))) { UserDetailView(selectedAnnotation: $0) }
+    }
+}
+
+// Wrapper preview that takes bindings as inputs
+struct StatefulPreviewWrapper<Value, Content: View>: View {
+    @State var value: Value
+    var content: (Binding<Value>) -> Content
+
+    var body: some View {
+        content($value)
+    }
+
+    init(_ value: Value, content: @escaping (Binding<Value>) -> Content) {
+        self._value = State(wrappedValue: value)
+        self.content = content
     }
 }
